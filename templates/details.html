@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}{{pet.name}}{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-10">Name: {{pet.name}}</div>
+    <div class="col-10">Species: {{pet.species}}</div>
+
+    {%if pet.photo_url%}
+    <div class="col-6">
+        <img src="{{pet.photo_url}}" alt="{{pet.name}}" class="img-fluid">
+    </div>
+    {%endif%}
+
+    {%if pet.age%}
+    <div class="col-10">Age: {{pet.age}}</div>
+    {%endif%}
+
+    <form>
+        <button class="btn btn-primary btn-sm" formaction="/{{pet.id}}/edit">Edit</button>
+        <a href="/" class="btn btn-danger btn-sm">Home</a>
+    </form>
+
+
+</div>
+
+
+
+
+{% endblock %}
